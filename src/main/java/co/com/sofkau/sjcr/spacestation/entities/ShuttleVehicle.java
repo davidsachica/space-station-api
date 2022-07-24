@@ -15,12 +15,21 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class ShuttleVehicle extends Spaceship {
 
+    /**
+     * Push of the shuttle.
+     */
     @Column(name = "push")
     private double push;
 
+    /**
+     * Capacity of the shuttle.
+     */
     @Column(name = "capacity_load")
     private double capacityLoad;
 
+    /**
+     * Power of the shuttle.
+     */
     @Column(name = "power")
     private double power;
 

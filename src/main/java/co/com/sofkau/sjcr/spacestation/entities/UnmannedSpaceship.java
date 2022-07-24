@@ -15,12 +15,21 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 public class UnmannedSpaceship extends Spaceship {
 
+    /**
+     * Destination of the spaceship
+     */
     @Column(name = "destination")
     private String destination;
 
+    /**
+     * Quantity of Motors of the spaceship
+     */
     @Column(name = "quantity_motors")
     private int quantityMotors;
 
+    /**
+     * Push of the spaceship
+     */
     @Column(name = "push")
     private double push;
 

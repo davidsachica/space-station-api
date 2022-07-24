@@ -9,7 +9,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tbl_fuel_type")
-@Data @AllArgsConstructor @NoArgsConstructor @Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class FuelType {
 
     @Id

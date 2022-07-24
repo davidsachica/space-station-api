@@ -1,5 +1,6 @@
 package co.com.sofkau.sjcr.spacestation.services.impl;
 
+import co.com.sofkau.sjcr.spacestation.entities.FuelType;
 import co.com.sofkau.sjcr.spacestation.entities.Spaceship;
 import co.com.sofkau.sjcr.spacestation.repository.BaseRepository;
 import co.com.sofkau.sjcr.spacestation.services.BaseService;
@@ -32,7 +33,11 @@ public abstract class BaseServiceImpl<E extends Spaceship, ID extends Long> impl
     public E findById(ID id) throws Exception {
         try {
             Optional<E> entityOptional = baseRepository.findById(id);
-            return entityOptional.get();
+            if (entityOptional.isPresent()) {
+                return entityOptional.get();
+            } else {
+                throw new Exception("No se encontró el registro");
+            }
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -72,6 +77,17 @@ public abstract class BaseServiceImpl<E extends Spaceship, ID extends Long> impl
             } else {
                 throw new Exception();
             }
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional
+    public List<E> findByFuelType(FuelType fuelType) throws Exception {
+        try {
+            List<E> entities = baseRepository.findByFuelType(fuelType);
+            return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

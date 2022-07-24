@@ -1,5 +1,6 @@
 package co.com.sofkau.sjcr.spacestation.services;
 
+import co.com.sofkau.sjcr.spacestation.entities.FuelType;
 import co.com.sofkau.sjcr.spacestation.entities.Spaceship;
 
 import java.util.List;
@@ -15,5 +16,7 @@ public interface BaseService<E extends Spaceship, ID extends Long> {
     public E update(ID id, E entity) throws Exception;
 
     public boolean delete(ID id) throws Exception;
+
+    public List<E> findByFuelType(FuelType fuelType) throws Exception;
 
 }
