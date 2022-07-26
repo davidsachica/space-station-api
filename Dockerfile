@@ -1,7 +1,7 @@
 # Runtime
 
-#Imagen básica: el almacén es java y la etiqueta es 11-jdk
-FROM adoptopenjdk/openjdk17:latest
+#Imagen básica: el almacén es java y la etiqueta es 17-jdk
+FROM eclipse-temurin:17-jdk-focal
 
 # Mantenimiento e información de contacto del espejo actual
 MAINTAINER stiwardjherikofcr.github.io
@@ -9,8 +9,8 @@ MAINTAINER stiwardjherikofcr.github.io
 # Crear un archivo temporal en el directorio / var / lib / docker de la máquina host y vincularlo al directorio / tmp en el contenedor.
 VOLUME /tmp
 
-# El contenedor expone el puerto 8090
-EXPOSE 8090
+# El contenedor expone el puerto 8091
+EXPOSE 8091
 
 ARG JAR_FILE=build/libs/space-station-0.0.1-SNAPSHOT.jar
 
