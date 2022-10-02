@@ -12,9 +12,13 @@ VOLUME /tmp
 # El contenedor expone el puerto 8091
 EXPOSE 8091
 
-ARG JAR_FILE=docs/libs/space-station-0.0.1-SNAPSHOT.jar
 WORKDIR /app
 COPY . .
+
+RUN ls
+
+ARG JAR_FILE=docs/libs/space-station-0.0.1-SNAPSHOT.jar
+
 RUN chmod +x gradlew
 RUN ./gradlew jar
 
@@ -22,4 +26,4 @@ RUN ./gradlew jar
 ADD ${JAR_FILE} app.jar
 
 # Comandos que deben ejecutarse después de que se inicia el contenedor
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/app.jar"]
