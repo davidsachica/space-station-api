@@ -12,7 +12,8 @@ VOLUME /tmp
 # El contenedor expone el puerto 8091
 EXPOSE 8091
 
-ARG JAR_FILE=build/libs/space-station-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=docs/libs/space-station-0.0.1-SNAPSHOT.jar
+RUN gradlew shadowJar
 
 # Copiar el programa empaquetado en la ubicación especificada en el contenedor
 ADD ${JAR_FILE} app.jar
