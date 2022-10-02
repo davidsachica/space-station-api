@@ -13,6 +13,9 @@ VOLUME /tmp
 EXPOSE 8091
 
 ARG JAR_FILE=docs/libs/space-station-0.0.1-SNAPSHOT.jar
+WORKDIR /app
+COPY . .
+RUN pwd
 RUN chmod +x gradlew
 RUN ./gradlew shadowJar
 
