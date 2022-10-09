@@ -19,8 +19,14 @@ RUN ls
 
 ARG JAR_FILE=docs/libs/space-station-0.0.1-SNAPSHOT.jar
 
-RUN chmod +x gradlew
-RUN gradlew jar
+USER root                # This changes default user to root
+RUN chown -R gradle /app # This changes ownership of folder
+USER gradle              # This changes the user back to the default user "gradle"
+
+RUN ./gradlew build --stacktrace
+
+#RUN chmod +x gradlew
+#RUN gradlew jar
 
 # Copiar el programa empaquetado en la ubicación especificada en el contenedor
 ADD ${JAR_FILE} app.jar
